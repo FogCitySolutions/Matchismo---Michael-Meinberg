@@ -18,6 +18,10 @@
 		A187F41F16B70D9E00AC1A50 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A187F41E16B70D9E00AC1A50 /* Default-568h@2x.png */; };
 		A187F42216B70D9E00AC1A50 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A187F42016B70D9E00AC1A50 /* MainStoryboard.storyboard */; };
 		A187F42516B70D9E00AC1A50 /* CardGameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A187F42416B70D9E00AC1A50 /* CardGameViewController.m */; };
+		A187F43616B73D6700AC1A50 /* PC_PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A187F43116B73D6700AC1A50 /* PC_PlayingCard.m */; };
+		A187F43716B73D6700AC1A50 /* PC_PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = A187F43316B73D6700AC1A50 /* PC_PlayingCardDeck.m */; };
+		A187F43B16B8822F00AC1A50 /* PCCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A187F43A16B8822F00AC1A50 /* PCCard.m */; };
+		A189066E16B9FB8300C4E915 /* PCDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = A189066D16B9FB8300C4E915 /* PCDeck.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +41,14 @@
 		A187F42116B70D9E00AC1A50 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		A187F42316B70D9E00AC1A50 /* CardGameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardGameViewController.h; sourceTree = "<group>"; };
 		A187F42416B70D9E00AC1A50 /* CardGameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CardGameViewController.m; sourceTree = "<group>"; };
+		A187F43016B73D6700AC1A50 /* PC_PlayingCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PC_PlayingCard.h; sourceTree = "<group>"; };
+		A187F43116B73D6700AC1A50 /* PC_PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PC_PlayingCard.m; sourceTree = "<group>"; };
+		A187F43216B73D6700AC1A50 /* PC_PlayingCardDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PC_PlayingCardDeck.h; sourceTree = "<group>"; };
+		A187F43316B73D6700AC1A50 /* PC_PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PC_PlayingCardDeck.m; sourceTree = "<group>"; };
+		A187F43916B8822F00AC1A50 /* PCCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCCard.h; sourceTree = "<group>"; };
+		A187F43A16B8822F00AC1A50 /* PCCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCard.m; sourceTree = "<group>"; };
+		A189066C16B9FB8300C4E915 /* PCDeck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PCDeck.h; sourceTree = "<group>"; };
+		A189066D16B9FB8300C4E915 /* PCDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCDeck.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,11 +95,9 @@
 		A187F40E16B70D9E00AC1A50 /* Matchismo */ = {
 			isa = PBXGroup;
 			children = (
-				A187F41716B70D9E00AC1A50 /* CardGameAppDelegate.h */,
-				A187F41816B70D9E00AC1A50 /* CardGameAppDelegate.m */,
-				A187F42016B70D9E00AC1A50 /* MainStoryboard.storyboard */,
-				A187F42316B70D9E00AC1A50 /* CardGameViewController.h */,
-				A187F42416B70D9E00AC1A50 /* CardGameViewController.m */,
+				A187F42D16B7358300AC1A50 /* Controllers */,
+				A187F42C16B7356C00AC1A50 /* View */,
+				A187F42B16B7356000AC1A50 /* Model */,
 				A187F40F16B70D9E00AC1A50 /* Supporting Files */,
 			);
 			path = Matchismo;
@@ -96,6 +106,8 @@
 		A187F40F16B70D9E00AC1A50 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A187F41716B70D9E00AC1A50 /* CardGameAppDelegate.h */,
+				A187F41816B70D9E00AC1A50 /* CardGameAppDelegate.m */,
 				A187F41016B70D9E00AC1A50 /* Matchismo-Info.plist */,
 				A187F41116B70D9E00AC1A50 /* InfoPlist.strings */,
 				A187F41416B70D9E00AC1A50 /* main.m */,
@@ -105,6 +117,38 @@
 				A187F41E16B70D9E00AC1A50 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A187F42B16B7356000AC1A50 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A187F43916B8822F00AC1A50 /* PCCard.h */,
+				A187F43A16B8822F00AC1A50 /* PCCard.m */,
+				A187F43016B73D6700AC1A50 /* PC_PlayingCard.h */,
+				A187F43116B73D6700AC1A50 /* PC_PlayingCard.m */,
+				A187F43216B73D6700AC1A50 /* PC_PlayingCardDeck.h */,
+				A187F43316B73D6700AC1A50 /* PC_PlayingCardDeck.m */,
+				A189066C16B9FB8300C4E915 /* PCDeck.h */,
+				A189066D16B9FB8300C4E915 /* PCDeck.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		A187F42C16B7356C00AC1A50 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A187F42016B70D9E00AC1A50 /* MainStoryboard.storyboard */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		A187F42D16B7358300AC1A50 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				A187F42316B70D9E00AC1A50 /* CardGameViewController.h */,
+				A187F42416B70D9E00AC1A50 /* CardGameViewController.m */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -177,6 +221,10 @@
 				A187F41516B70D9E00AC1A50 /* main.m in Sources */,
 				A187F41916B70D9E00AC1A50 /* CardGameAppDelegate.m in Sources */,
 				A187F42516B70D9E00AC1A50 /* CardGameViewController.m in Sources */,
+				A187F43616B73D6700AC1A50 /* PC_PlayingCard.m in Sources */,
+				A187F43716B73D6700AC1A50 /* PC_PlayingCardDeck.m in Sources */,
+				A187F43B16B8822F00AC1A50 /* PCCard.m in Sources */,
+				A189066E16B9FB8300C4E915 /* PCDeck.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,6 +341,7 @@
 				A187F42A16B70D9E00AC1A50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
