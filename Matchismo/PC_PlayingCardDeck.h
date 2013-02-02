@@ -10,9 +10,9 @@
 // Subclass of PC_DECK, so it has all the properties of a deck of cards, plus extra stuff.
 
 
-#import "PCDeck.h"
+#import "Deck.h"
 
 
-@interface PC_PlayingCardDeck : PCDeck
+@interface PC_PlayingCardDeck : Deck
 
 @end

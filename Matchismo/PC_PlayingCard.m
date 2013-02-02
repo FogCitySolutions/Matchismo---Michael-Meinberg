@@ -12,6 +12,23 @@
 @synthesize suit = _suit; // Have to this - becuase we implemented BOTH the setter and the getter.
 
 
+-(int)match:(NSArray *)otherCards
+{
+	int score = 0;
+	if([otherCards count] == 1)
+		{
+		PC_PlayingCard *otherCard = [otherCards lastObject];
+	
+		if ([otherCard.suit isEqualToString:self.suit])
+			score = 1;
+		else if  (otherCard.rank == self.rank)
+			score = 4;
+		}
+	
+	return score;
+}
+
+
 + (NSArray *)validSuits
 {
 	return @[@"♥",@"♦",@"♠",@"♣"];
