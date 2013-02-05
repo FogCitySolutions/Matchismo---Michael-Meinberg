@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "PCCard.h"
+#import "PC_PlayingCard.h"
 #import "Deck.h"
 
 #define NOT !
@@ -15,13 +16,14 @@
 
 @interface CardMatchingGame : NSObject
 
-@property (readonly, nonatomic) int score; // public readonly.
+	@property (strong, nonatomic) NSMutableArray *mar_Cards; // of Cards
+	@property NSUInteger *score; // public readonly.
 
-// designated initializer
--(id)initWithCardCount:(NSUInteger)count
-			 usingDeck:(Deck *)deck;
+	// designated initializer
+	-(id)initWithCardCount:(NSUInteger)count
+				 usingDeck:(Deck *)deck;
 
--(void)flipCardAtIndex:(NSUInteger)index;
--(PCCard *)cardAtIndex:(NSUInteger)index;
+	-(NSString *)flipCardAtIndex:(NSUInteger)index;
+	-(PCCard *)cardAtIndex:(NSUInteger)index;
 
 @end

@@ -86,8 +86,9 @@
 -(NSString *)contents
 {	
 	NSArray *rankStrings = @[@"?",@"A",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"J",@"Q",@"K"];  // The new format iOS 6 - does ALLOC INIT for you @[ ...
-	NSString *card_contents = [rankStrings[self.rank] stringByAppendingString:self.suit];
-	NSLog(@" %@",card_contents);
+				
+	// NSString *card_contents = [rankStrings[self.rank] stringByAppendingString:self.suit];
+	// NSLog(@" %@",card_contents);
 	return [rankStrings[self.rank] stringByAppendingString:self.suit];
 	//return card_contents;
 }

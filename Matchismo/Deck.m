@@ -30,8 +30,8 @@
 		else
 			[self.cards addObject:card];	// "addobject puts by default on the end of the array
 		}
-	PCCard *foo = self.cards[0];
-	NSLog(@" FOO %@ ",foo.contents);
+	// PCCard *foo = self.cards[0];
+	// NSLog(@" FOO %@ ",foo.contents);
 }
 
 

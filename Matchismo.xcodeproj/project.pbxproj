@@ -22,6 +22,7 @@
 		A187F43716B73D6700AC1A50 /* PC_PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = A187F43316B73D6700AC1A50 /* PC_PlayingCardDeck.m */; };
 		A187F43B16B8822F00AC1A50 /* PCCard.m in Sources */ = {isa = PBXBuildFile; fileRef = A187F43A16B8822F00AC1A50 /* PCCard.m */; };
 		A18A3F3B16BB203F004B484F /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = A18A3F3A16BB203F004B484F /* Deck.m */; };
+		A1CA879616C01D3400CF4CE8 /* CardMatchingGame_3Card.m in Sources */ = {isa = PBXBuildFile; fileRef = A1CA879516C01D3400CF4CE8 /* CardMatchingGame_3Card.m */; };
 		A1D9C1FC16BB2E8700CE9A39 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D9C1FB16BB2E8700CE9A39 /* CardMatchingGame.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,8 @@
 		A187F43A16B8822F00AC1A50 /* PCCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PCCard.m; sourceTree = "<group>"; };
 		A18A3F3916BB203F004B484F /* Deck.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
 		A18A3F3A16BB203F004B484F /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
+		A1CA879416C01D3400CF4CE8 /* CardMatchingGame_3Card.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame_3Card.h; sourceTree = "<group>"; };
+		A1CA879516C01D3400CF4CE8 /* CardMatchingGame_3Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame_3Card.m; sourceTree = "<group>"; };
 		A1D9C1FA16BB2E8700CE9A39 /* CardMatchingGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 		A1D9C1FB16BB2E8700CE9A39 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -127,6 +130,8 @@
 			children = (
 				A1D9C1FA16BB2E8700CE9A39 /* CardMatchingGame.h */,
 				A1D9C1FB16BB2E8700CE9A39 /* CardMatchingGame.m */,
+				A1CA879416C01D3400CF4CE8 /* CardMatchingGame_3Card.h */,
+				A1CA879516C01D3400CF4CE8 /* CardMatchingGame_3Card.m */,
 				A18A3F3916BB203F004B484F /* Deck.h */,
 				A18A3F3A16BB203F004B484F /* Deck.m */,
 				A187F43916B8822F00AC1A50 /* PCCard.h */,
@@ -231,6 +236,7 @@
 				A187F43B16B8822F00AC1A50 /* PCCard.m in Sources */,
 				A18A3F3B16BB203F004B484F /* Deck.m in Sources */,
 				A1D9C1FC16BB2E8700CE9A39 /* CardMatchingGame.m in Sources */,
+				A1CA879616C01D3400CF4CE8 /* CardMatchingGame_3Card.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
