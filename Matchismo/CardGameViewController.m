@@ -24,9 +24,11 @@
 	@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 	@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
-//@property (strong, nonatomic) CardMatchingGame *cmGame2Card; // Very common to have a pointer to your model.
+	@property (strong, nonatomic) CardMatchingGame *cmGame; // Very common to have a pointer to your model.
 																 //@property (strong, nonatomic) CardMatchingGame_3Card *cmGame3Card; // Very common to have a pointer to your model.
-	@property id cmGame;
+
+	//@property id cmGame;
+	
 
 	@property (weak, nonatomic) IBOutlet UISegmentedControl *cardGameType;
 @end
@@ -34,22 +36,18 @@
 
 
 
-
 @implementation CardGameViewController
 
-//-(id *)cmGame
-//	{
-//	//	if (NOT _game) _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-//	//															 usingDeck:self.theDeck];
-//		
-//		
-//		if (NOT _cmGame)
-//			_cmGame = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
-//													  usingDeck:[ [PC_PlayingCardDeck alloc] init] ];  // This creates the deck right here, and it will have no property value.
-//																												  // will be weak, but that is good here, as the deck only
-//																												  // needs to live long enough to set the cards.
-//		return _cmGame;
-//	}
+-(CardMatchingGame *)cmGame
+	{
+		
+		if (NOT _cmGame)
+			_cmGame = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count]
+													  usingDeck:[ [PC_PlayingCardDeck alloc] init] ];  // This creates the deck right here, and it will have no property value.
+																												  // will be weak, but that is good here, as the deck only
+																												  // needs to live long enough to set the cards.
+		return _cmGame;
+	}
 
 //-(CardMatchingGame_3Card *)cmGame3Card
 //{
@@ -119,18 +117,34 @@
 {
 	for (UIButton *oneCardButton in self.cardButtons)
 		{
-		
 		PCCard *card = [self.cmGame cardAtIndex:[self.cardButtons indexOfObject:oneCardButton]];
-		[oneCardButton setTitle:card.contents forState:UIControlStateSelected]; // card from routine above, that is attached to the button.
+		
+		// Back of the card as an image
+        // UIImage *cardBackImage = [UIImage imageNamed:@"cardback.png"];
+		
+		// Image stuff
+		[oneCardButton setImage:card.imageOnCard forState:UIControlStateNormal];
+		[oneCardButton setImage:[[UIImage alloc] init] forState:UIControlStateSelected]; // Sets it to a NIL image!
+		[oneCardButton setImage:[[UIImage alloc] init] forState:UIControlStateSelected | UIControlStateDisabled]; // Sets it to a NIL image!
+		oneCardButton.imageEdgeInsets = UIEdgeInsetsMake(4, 4, 4, 4);
+		
 		oneCardButton.selected = card.isFaceUp;
+		
+		[oneCardButton setTitle:card.contents forState:UIControlStateSelected];
+        [oneCardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
 		
 		oneCardButton.enabled = NOT card.isUnplayable;
 		[oneCardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled]; // The button is now disabled, so we need to set the title for that state too, or is shows the normal state
 		
 		oneCardButton.alpha	= (card.isUnplayable ? 0.5 : 1);  // dim it if it is marked unplayable.
 		}
+			
 	
-		self.scoreLabel.text = [NSString stringWithFormat:@"Score %d ",self.cmGame.score ];
+	CardMatchingGame_3Card *gameMe = self.cmGame;
+	self.scoreLabel.text = [NSString stringWithFormat:@"Score %d ",self.cmGame.score];
+
+	
+	
 	
 	//		PCCard *cardA = [[PCCard alloc] init];
 	//		PCCard *cardB = [self.cmGame cardAtIndex:1];
@@ -173,11 +187,6 @@
 	self.whatHappened.text = [self.cmGame flipCardAtIndex:[self.cardButtons indexOfObject:sender] ];  // cardButtons is an array of the buttons on view (button collection), this gets the index of the sender button
 	[self updateUI]; // this is really common - updates the view with information from the model.
 	}
-
-
-
-
-
 
 
 @end

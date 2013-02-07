@@ -23,7 +23,10 @@
 	return _mar_Cards;
 }
 
-
+//_(int)score
+//{
+//	return _score
+//}
 
 
 -(id)initWithCardCount:(NSUInteger)count
@@ -61,7 +64,7 @@
 	{
 	NSString * whatHappened;
 	PCCard *flippedCard = [self cardAtIndex:index];
-	if (flippedCard && !flippedCard.unplayable) // does oneCard exist and not unplayable?
+	if (flippedCard AND NOT flippedCard.unplayable) // does oneCard exist and not unplayable?
 		{
 		if (NOT flippedCard.isFaceUp) // can't flip it if it is already showwing.
 			{
@@ -69,13 +72,15 @@
 				{
 				if (otherCard.isFaceUp AND NOT otherCard.isUnplayable)
 					{
-					int matchScore = [flippedCard match:@[flippedCard]];
+					
+					
+					int matchScore = [flippedCard match:@[otherCard]];
 					if (matchScore)
 						{
 						flippedCard.Unplayable = YES;
 						otherCard.Unplayable = YES;
 						self.score += matchScore * MATCH_BONUS;
-						whatHappened = [flippedCard.contents stringByAppendingFormat:@"  & %@ matched! For %d points",otherCard.contents,MATCH_BONUS];
+						whatHappened = [flippedCard.contents stringByAppendingFormat:@"  & %@ matched! For %d points",otherCard.contents,matchScore * MATCH_BONUS];
 						}
 					else
 						{

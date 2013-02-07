@@ -17,7 +17,7 @@
 @interface CardMatchingGame : NSObject
 
 	@property (strong, nonatomic) NSMutableArray *mar_Cards; // of Cards
-	@property NSUInteger *score; // public readonly.
+	@property int score; // public readonly.
 
 	// designated initializer
 	-(id)initWithCardCount:(NSUInteger)count

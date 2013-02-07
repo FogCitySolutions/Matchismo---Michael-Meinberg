@@ -14,7 +14,7 @@
 
 @implementation Deck
 
--(NSMutableArray *)cards	// Setter - this is lasy Instantiation.
+-(NSMutableArray *)cards	// Getter - this is lasy Instantiation.
 {
 	if (!_cards) _cards = [[NSMutableArray alloc] init];
 	return _cards;
