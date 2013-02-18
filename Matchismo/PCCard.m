@@ -10,6 +10,13 @@
 
 @implementation PCCard
 
+
+-(NSString *)description
+{
+	return [NSString stringWithFormat: @" card contents %@  face up? %@ \n",self.contents,(self.faceUp ? @"YES" : @"NO")];
+}
+
+
 -(UIImage *) imageOnCard
 {
 	if (!_imageOnCard)

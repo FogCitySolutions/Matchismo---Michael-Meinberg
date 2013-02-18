@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "A187F40316B70D9E00AC1A50"
-               BuildableName = "Matchismo.app"
-               BlueprintName = "Matchismo"
-               ReferencedContainer = "container:Matchismo.xcodeproj">
+               BuildableName = "Matchismo FCS HWK2.app"
+               BlueprintName = "Matchismo FCS HWK2"
+               ReferencedContainer = "container:Matchismo FCS HWK2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A187F40316B70D9E00AC1A50"
-            BuildableName = "Matchismo.app"
-            BlueprintName = "Matchismo"
-            ReferencedContainer = "container:Matchismo.xcodeproj">
+            BuildableName = "Matchismo FCS HWK2.app"
+            BlueprintName = "Matchismo FCS HWK2"
+            ReferencedContainer = "container:Matchismo FCS HWK2.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A187F40316B70D9E00AC1A50"
-            BuildableName = "Matchismo.app"
-            BlueprintName = "Matchismo"
-            ReferencedContainer = "container:Matchismo.xcodeproj">
+            BuildableName = "Matchismo FCS HWK2.app"
+            BlueprintName = "Matchismo FCS HWK2"
+            ReferencedContainer = "container:Matchismo FCS HWK2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "A187F40316B70D9E00AC1A50"
-            BuildableName = "Matchismo.app"
-            BlueprintName = "Matchismo"
-            ReferencedContainer = "container:Matchismo.xcodeproj">
+            BuildableName = "Matchismo FCS HWK2.app"
+            BlueprintName = "Matchismo FCS HWK2"
+            ReferencedContainer = "container:Matchismo FCS HWK2.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

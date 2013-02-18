@@ -12,23 +12,23 @@
 #import "PCCard.h"
 #import "CardMatchingGame.h"
 #import "CardMatchingGame_3Card.h"
+#import "GameResult.h"
 
 
 // Private properties
 @interface CardGameViewController ()
 
+	@property (strong, nonatomic) CardMatchingGame *cmGame; // Very common to have a pointer to your model.
 	@property (weak, nonatomic) IBOutlet UILabel *whatHappened;
 	@property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
-	@property (nonatomic) int flipCount;
 	// @property (nonatomic, strong) Deck *theDeck;  Don't need this anymore, we are going to create it for a split second when we pull cards off it
 	@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 	@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 
-	@property (strong, nonatomic) CardMatchingGame *cmGame; // Very common to have a pointer to your model.
-																 //@property (strong, nonatomic) CardMatchingGame_3Card *cmGame3Card; // Very common to have a pointer to your model.
+	@property (nonatomic) int flipCount;
 
 	//@property id cmGame;
-	
+@property (nonatomic, strong) GameResult *gameResult; // pointer to the gameResult Class
 
 	@property (weak, nonatomic) IBOutlet UISegmentedControl *cardGameType;
 @end
@@ -37,6 +37,13 @@
 
 
 @implementation CardGameViewController
+
+-(GameResult *)gameResult
+{
+	if (NOT _gameResult) _gameResult = [[GameResult alloc] init];
+	return _gameResult;
+}
+
 
 -(CardMatchingGame *)cmGame
 	{
@@ -88,6 +95,7 @@
 
 
 
+
 - (IBAction)dealCards:(UIButton *)sender
 	{
 		// Clears out all the UI stuff.
@@ -97,8 +105,10 @@
 		// self.scoreLabel.text = @"Score: 0";   // Undated in updateUI
 		
 		self.cmGame = nil;
+		self.gameResult = nil;
 		[self updateUI];
 	}
+
 
 
 
@@ -140,7 +150,7 @@
 		}
 			
 	
-	CardMatchingGame_3Card *gameMe = self.cmGame;
+	// CardMatchingGame_3Card *gameMe = self.cmGame;
 	self.scoreLabel.text = [NSString stringWithFormat:@"Score %d ",self.cmGame.score];
 
 	
@@ -177,6 +187,7 @@
 {
 	_flipCount = flipCount;
 	self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d ", self.flipCount];
+	self.gameResult.score = self.cmGame.score;
 }
 
 

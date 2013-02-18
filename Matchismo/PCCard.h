@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 
 @interface PCCard : NSObject
+{
+	int x;
+	NSString * test;
+}
+
 
 @property (nonatomic, strong) NSString *contents;
 @property (nonatomic, getter = isFaceUp) BOOL faceUp;
