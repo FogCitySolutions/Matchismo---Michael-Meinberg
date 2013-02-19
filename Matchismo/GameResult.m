@@ -7,7 +7,6 @@
 //
 
 #import "GameResult.h"
-#import "FogCity_Defines.h"
 
 // Private declartions
 @interface GameResult()
@@ -51,7 +50,7 @@
 			_start = resultDictionary[START_KEY];
 			_end = resultDictionary[END_KEY];
 			_score = [resultDictionary[SCORE_KEY] intValue];
-			if (NOT _start || NOT _end ) self = nil;
+			if (! _start || ! _end ) self = nil;
 			}
 		}
 	return self;
@@ -63,7 +62,7 @@
 -(void)synchronize
 	{
 		NSMutableDictionary *mutableGameResultsFromUserDefaults = [[[NSUserDefaults standardUserDefaults] dictionaryForKey:ALL_RESULTS_KEY] mutableCopy];
-		if (NOT mutableGameResultsFromUserDefaults ) mutableGameResultsFromUserDefaults = [[NSMutableDictionary alloc] init];
+		if (! mutableGameResultsFromUserDefaults ) mutableGameResultsFromUserDefaults = [[NSMutableDictionary alloc] init];
 		mutableGameResultsFromUserDefaults[[self.start description]] = [self asPropertyList];  // The first bracket is "key for dictionary", the second runs the self.start description method.
 		[[NSUserDefaults standardUserDefaults] setObject:mutableGameResultsFromUserDefaults forKey:ALL_RESULTS_KEY];
 		[[NSUserDefaults standardUserDefaults] synchronize];
