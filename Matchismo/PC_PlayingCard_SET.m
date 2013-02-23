@@ -97,9 +97,9 @@
 		NSMutableAttributedString *mat_cardvalue = [[NSMutableAttributedString alloc] initWithString:cardString attributes:cardAttributes];
 		
 		self.mat_Contents = mat_cardvalue;
-		NSString *contents = [[[self.color plus:self.symbol]plus: self.shading] plus:[NSString stringWithFormat:@" %d",self.number]] ;
+		self.contents = [[[self.color plus:self.symbol]plus: self.shading] plus:[NSString stringWithFormat:@" %d",self.number]] ;
 							 
-		return contents;
+		return self.contents;
 	}
 
 
