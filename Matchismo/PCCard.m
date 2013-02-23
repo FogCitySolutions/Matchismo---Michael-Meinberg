@@ -13,7 +13,7 @@
 
 -(NSString *)description
 {
-	return [NSString stringWithFormat: @" card contents %@  face up? %@ \n",self.contents,(self.faceUp ? @"YES" : @"NO")];
+	return [NSString stringWithFormat: @" card contents %@     face up? %@     Unplayable? %@ ",self.contents,(self.faceUp ? @"YES" : @"NO") ,(self.unplayable ? @"YES" : @"NO")];
 }
 
 

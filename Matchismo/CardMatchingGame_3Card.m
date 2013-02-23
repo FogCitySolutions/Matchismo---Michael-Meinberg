@@ -17,14 +17,6 @@
 
 @implementation CardMatchingGame_3Card
 
-// Lazy me...
-//-(NSMutableArray *)mar_Cards
-//{
-//	if (!_mar_Cards) _mar_Cards = [[NSMutableArray alloc] initWithCapacity:52];
-//	return _mar_Cards;
-//}
-//
-
 
 #define MATCH_BONUS 4
 #define MISMATCH_PENALTY 2
@@ -32,59 +24,58 @@
 
 // Three card matching
 -(NSString *)flipCardAtIndex:(NSUInteger)index
-{
-	NSString * whatHappened;
-	// int numCardsUp = 1;
-	PCCard *flippedCard = [self cardAtIndex:index];
-	PC_PlayingCard *firstCard =	nil ; //[[PCCard alloc] init];  // will get set with the first faceup card there is.
-	PC_PlayingCard *secondCard = nil ; //[[PCCard alloc] init];
+	{
+		NSString *whatHappened;
+		// int numCardsUp = 1;
+		PCCard *flippedCard = [self cardAtIndex:index];
+		PC_PlayingCard *firstCard =	nil ; //[[PCCard alloc] init];  // will get set with the first faceup card there is.
+		PC_PlayingCard *secondCard = nil ; //[[PCCard alloc] init];
 
-	if (flippedCard AND NOT flippedCard.unplayable) // does oneCard exist and not unplayable?
-		{
-		if (NOT flippedCard.isFaceUp) // can't flip it if it is already showing.
+		if (flippedCard AND NOT flippedCard.unplayable) // does oneCard exist and not unplayable?
 			{
-			// Compares the flipped card to the rest of the deck.
-			for (PC_PlayingCard *otherCard in self.mar_Cards)
+			if (NOT flippedCard.isFaceUp) // can't flip it if it is already showing.
 				{
-				if (otherCard.isFaceUp AND NOT otherCard.isUnplayable)
+				// Compares the flipped card to the rest of the deck.
+				for (PC_PlayingCard *otherCard in self.mar_Cards)
 					{
-					if (NOT firstCard) firstCard = otherCard;
-						else secondCard = otherCard;
-					}
-					
-				if (firstCard AND secondCard) // Both cards exist, so we have all three cards...
-					{
-						int curScore = self.score;
-						int matchScore = [flippedCard match:@[firstCard]];
-						if (matchScore) self.score += matchScore * MATCH_BONUS;
-					
-						matchScore = [flippedCard match:@[secondCard]];
-						if (matchScore) self.score += matchScore * MATCH_BONUS;
+					if (otherCard.isFaceUp AND NOT otherCard.isUnplayable)
+						{
+						if (NOT firstCard) firstCard = otherCard;
+							else secondCard = otherCard;
+						}
 						
-						matchScore = [firstCard match:@[secondCard]];
-						if (matchScore) self.score += matchScore * MATCH_BONUS;
+					if (firstCard AND secondCard) // Both cards exist, so we have all three cards...
+						{
+							int curScore = self.score;
+							int matchScore = [flippedCard match:@[firstCard]];
+							if (matchScore) self.score += matchScore * MATCH_BONUS;
 						
-						if (NOT curScore == self.score)
-							whatHappened = [flippedCard.contents stringByAppendingFormat:@"  & %@ matched! For %d points",otherCard.contents,MATCH_BONUS];
-						else
-							{
-							self.score -= MISMATCH_PENALTY;
-							whatHappened = [flippedCard.contents stringByAppendingFormat:@"  & %@ no-match: minus %d points",otherCard.contents,MISMATCH_PENALTY];
-							}
+							matchScore = [flippedCard match:@[secondCard]];
+							if (matchScore) self.score += matchScore * MATCH_BONUS;
+							
+							matchScore = [firstCard match:@[secondCard]];
+							if (matchScore) self.score += matchScore * MATCH_BONUS;
+							
+							if (NOT curScore == self.score)
+								whatHappened = [flippedCard.contents stringByAppendingFormat:@"  & %@ matched! For %d points",otherCard.contents,MATCH_BONUS];
+							else
+								{
+								self.score -= MISMATCH_PENALTY;
+								whatHappened = [flippedCard.contents stringByAppendingFormat:@"  & %@ no-match: minus %d points",otherCard.contents,MISMATCH_PENALTY];
+								}
 
-						
-						flippedCard.Unplayable = YES;
-						otherCard.Unplayable = YES;
-						firstCard.Unplayable = YES;
+							flippedCard.Unplayable = YES;
+							secondCard.Unplayable = YES;
+							firstCard.Unplayable = YES;
+						}
 					}
+				if (whatHappened == nil) whatHappened = [flippedCard.contents stringByAppendingFormat:@" unflipped: minus %d points",FLIP_COST];
+				self.score -= FLIP_COST;
+				[self.scores addObject:[NSString stringWithFormat:@" SET Game Score: %@",[NSNumber numberWithInt:self.score]]];
 				}
-			if (whatHappened == nil) whatHappened = [flippedCard.contents stringByAppendingFormat:@" unflipped: minus %d points",FLIP_COST];
-			self.score -= FLIP_COST;
-			
+				flippedCard.faceUp = NOT flippedCard.isFaceUp; // flip the card
 			}
-			flippedCard.faceUp = NOT flippedCard.isFaceUp; // flip the card
-		}
-	return whatHappened;
-}
+		return whatHappened;
+	}
 
 @end

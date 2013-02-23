@@ -12,6 +12,7 @@
 @synthesize suit = _suit; // Have to this - becuase we implemented BOTH the setter and the getter.
 
 
+
 -(int)match:(NSArray *)otherCards
 {
 	int score = 0;
@@ -29,10 +30,14 @@
 }
 
 
+
+
 + (NSArray *)validSuits
 {
 	return @[@"♥",@"♦",@"♠",@"♣"];
 }
+
+
 
 
 // suit SETTER
@@ -44,6 +49,9 @@
 		_suit = suit;
 		}
 }
+
+
+
 
 // suit getter
 -(NSString *)suit
@@ -58,6 +66,8 @@
 									//		return @"?";
 									//	}
 }
+
+
 
 
 
@@ -82,7 +92,7 @@
 }
 
 
-// Returns a string of every card, every suit.  
+// Returns a string of the current suit and rank displayed as a string, i.e. K♥  based on the rank # and suit in the current card
 -(NSString *)contents
 {	
 	NSArray *rankStrings = @[@"?",@"A",@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"J",@"Q",@"K"];  // The new format iOS 6 - does ALLOC INIT for you @[ ...

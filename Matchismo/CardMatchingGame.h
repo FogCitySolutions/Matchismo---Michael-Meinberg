@@ -19,6 +19,8 @@
 	@property (strong, nonatomic) NSMutableArray *mar_Cards; // of Cards
 	@property int score; // public readonly.
 
+	@property (nonatomic, strong) NSMutableArray *scores;
+
 	// designated initializer
 	-(id)initWithCardCount:(NSUInteger)count
 				 usingDeck:(Deck *)deck;

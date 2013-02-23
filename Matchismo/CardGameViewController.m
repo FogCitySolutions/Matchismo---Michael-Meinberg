@@ -28,7 +28,7 @@
 	@property (nonatomic) int flipCount;
 
 	//@property id cmGame;
-@property (nonatomic, strong) GameResult *gameResult; // pointer to the gameResult Class
+	@property (nonatomic, strong) GameResult *gameResult; // pointer to the gameResult Class
 
 	@property (weak, nonatomic) IBOutlet UISegmentedControl *cardGameType;
 @end
@@ -105,7 +105,7 @@
 		// self.scoreLabel.text = @"Score: 0";   // Undated in updateUI
 		
 		self.cmGame = nil;
-		self.gameResult = nil;
+	    self.gameResult = nil;
 		[self updateUI];
 	}
 
@@ -140,11 +140,11 @@
 		
 		oneCardButton.selected = card.isFaceUp;
 		
-		[oneCardButton setTitle:card.contents forState:UIControlStateSelected];
-        [oneCardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled];
+		[oneCardButton setTitle:[card contents] forState:UIControlStateSelected];
+        [oneCardButton setTitle:[card contents] forState:UIControlStateSelected|UIControlStateDisabled];
 		
 		oneCardButton.enabled = NOT card.isUnplayable;
-		[oneCardButton setTitle:card.contents forState:UIControlStateSelected|UIControlStateDisabled]; // The button is now disabled, so we need to set the title for that state too, or is shows the normal state
+		[oneCardButton setTitle: [card contents] forState:UIControlStateSelected|UIControlStateDisabled]; // The button is now disabled, so we need to set the title for that state too, or is shows the normal state
 		
 		oneCardButton.alpha	= (card.isUnplayable ? 0.5 : 1);  // dim it if it is marked unplayable.
 		}

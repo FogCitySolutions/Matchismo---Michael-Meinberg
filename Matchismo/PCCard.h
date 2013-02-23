@@ -16,6 +16,8 @@
 
 
 @property (nonatomic, strong) NSString *contents;
+@property (nonatomic, strong) NSMutableAttributedString *mat_Contents;
+
 @property (nonatomic, getter = isFaceUp) BOOL faceUp;
 @property (nonatomic, getter = isUnplayable) BOOL unplayable;
 @property (nonatomic, strong) UIImage *imageOnCard;

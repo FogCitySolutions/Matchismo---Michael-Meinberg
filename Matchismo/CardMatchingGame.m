@@ -29,6 +29,12 @@
 //}
 
 
+-(NSMutableArray *)scores
+{
+	if (NOT _scores)  _scores = [[NSMutableArray alloc] init];
+	return _scores;
+}
+
 -(id)initWithCardCount:(NSUInteger)count
 			 usingDeck:(Deck *)deck
 	{
@@ -72,8 +78,6 @@
 				{
 				if (otherCard.isFaceUp AND NOT otherCard.isUnplayable)
 					{
-					
-					
 					int matchScore = [flippedCard match:@[otherCard]];
 					if (matchScore)
 						{
